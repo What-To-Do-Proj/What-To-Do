@@ -35,7 +35,7 @@ Assistance in linking Task's and User's with relevant times  (Tasks , Users).
 - In case a conflict does not get solved after some time to the point it affects the flow of work, we will escalate that to the instructional team within 6 hours of the time of that conflict.
 
 
-### Previously discussed ideas :
+# Previously discussed ideas :
 * A :
 What-To-Do (approved).
 
