@@ -63,12 +63,15 @@ Providing direct contact by connecting the subscriber , with news from all footb
 
 #### * Trello URL : 
 
-- 
+- https://trello.com/b/zbo6jeAd/what-to-do-project
 
 # Begin Wireframes & Software Requirements :
 
 ## * Software Requirements :
 
+### Go to Software Requirements page : [Software Requirements](requirements.md) 
+
+### Tools:
 * Android studio.
 
 * GitHub.
@@ -76,5 +79,7 @@ Providing direct contact by connecting the subscriber , with news from all footb
 * Trello.
 
 * Amplify Framework.
+
+
 
 
