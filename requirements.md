@@ -49,7 +49,4 @@ The application should run fast with no propagation, in order to provide the bes
 Our app will have a friendly interface that can be used by the different users. 
  
 ## Data flow
-![DBDiagram](DBDiagram.png)
-
-## Entity Realation Diagram
-![ERD](ERD.PNG)
+![DFD](DFD.PNG)

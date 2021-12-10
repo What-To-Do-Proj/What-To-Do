@@ -80,6 +80,10 @@ Providing direct contact by connecting the subscriber , with news from all footb
 
 * Amplify Framework.
 
+## Using a Database? Make an Database Schema Diagram
+![DBDiagram](DBDiagram.png)
 
+## Entity Realation Diagram
+![ERD](ERD.PNG)
 
 
