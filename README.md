@@ -8,7 +8,7 @@ Assistance in linking Task's and User's with relevant times  (Tasks , Users).
 
 ## Team Members :
 
-## * Al-Shamikh Quraan
+## * Al-Shamikh Quraan (Team Leader)
 ## * Abdurrahman Abuata
 ## * Dima Zeqlam 
 ## * Ghaida Gharaibeh
