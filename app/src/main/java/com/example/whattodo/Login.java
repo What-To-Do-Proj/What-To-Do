@@ -22,8 +22,7 @@ public class Login extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Button LoginIn = findViewById(R.id.buttonLogin);
-//        EditText username = findViewById(R.id.LogUserName);
-        EditText email = findViewById(R.id.LogEmail);
+        EditText username = findViewById(R.id.LogUserName);
         EditText password = findViewById(R.id.LoginPassword);
         Button createNewAccount = findViewById(R.id.newAccount);
 
@@ -31,8 +30,8 @@ public class Login extends AppCompatActivity {
         SharedPreferences.Editor preferenceEditor = preferences.edit();
 
         LoginIn.setOnClickListener(view -> {
-            LoginIn(email.getText().toString(), password.getText().toString());
-            preferenceEditor.putString("email",email.getText().toString());
+            LoginIn(username.getText().toString(), password.getText().toString());
+            preferenceEditor.putString("username",username.getText().toString());
             preferenceEditor.apply();
         });
 
@@ -45,9 +44,9 @@ public class Login extends AppCompatActivity {
 
     }
 
-    void LoginIn(String email, String password) {
+    void LoginIn(String username, String password) {
         Amplify.Auth.signIn(
-                email,
+                username,
                 password,
                 success -> {
                     Log.i(TAG, "signIn: worked " + success.toString());

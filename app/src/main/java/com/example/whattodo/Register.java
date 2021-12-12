@@ -17,7 +17,7 @@ import com.amplifyframework.auth.AuthUserAttributeKey;
 import com.amplifyframework.auth.options.AuthSignUpOptions;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.AWSDataStorePlugin;
-//import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
+import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 
 public class Register extends AppCompatActivity {
     private static final String TAG = "Register";
@@ -27,14 +27,13 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        configureAmplify();
+        configureAmplify();
 
 
         Button signUp = findViewById(R.id.btnReg);
         EditText username = findViewById(R.id.RegUserName);
         EditText email = findViewById(R.id.RegGmail);
         EditText password = findViewById(R.id.RegPassword);
-         EditText phone = findViewById(R.id.RegPhone);
         TextView signIn = findViewById(R.id.btnGotoLogin);
 
         signUp.setOnClickListener(new View.OnClickListener() {
@@ -58,17 +57,19 @@ public class Register extends AppCompatActivity {
         });
     }
     void signUp(String username, String email, String password) {
+        AuthSignUpOptions options = AuthSignUpOptions.builder()
+                .userAttribute(AuthUserAttributeKey.email(), email)
+                .build();
+
         Amplify.Auth.signUp(
-                email,
+                username,
                 password,
-                AuthSignUpOptions.builder()
-                        .userAttribute(AuthUserAttributeKey.email(), email)
-                        .build(),
+                options,
                 success -> {
                     Log.i(TAG, "signUp successful: " + success.toString());
                     Intent goToVerification = new Intent(Register.this, ConfirmActivity.class);
-                    goToVerification.putExtra("email", email);
-                    goToVerification.putExtra("password", password);
+                    goToVerification.putExtra("username",  username);
+//                    goToVerification.putExtra("password", password);
                     startActivity(goToVerification);
                 },
                 error -> {
@@ -80,8 +81,7 @@ public class Register extends AppCompatActivity {
         // configure Amplify plugins
         try {
             Amplify.addPlugin(new AWSDataStorePlugin());
-            //need to install cognito (amplify add auth)
-//            Amplify.addPlugin(new AWSCognitoAuthPlugin());
+            Amplify.addPlugin(new AWSCognitoAuthPlugin());
             Amplify.addPlugin(new AWSApiPlugin());
             Amplify.configure(getApplicationContext());
             Log.i(TAG, "Successfully initialized Amplify plugins");

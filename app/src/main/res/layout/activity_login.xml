@@ -23,7 +23,7 @@
 
 
             <EditText
-                android:id="@+id/LogEmail"
+                android:id="@+id/LogUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
@@ -32,10 +32,10 @@
                 android:ems="10"
                 android:inputType="textEmailAddress"
                 android:padding="8dp"
-                android:hint="Email"
+                android:hint="User Name"
                 android:textColorHint="#ffffff"
                 android:maxLines="1"
-                android:drawableLeft="@drawable/ic_email_white_18dp" />
+                android:drawableLeft="@drawable/round_account_circle_white_18dp"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -72,7 +72,7 @@
                 android:layout_marginTop="30dp"
                 style="@style/Base.TextAppearance.AppCompat.Body1"
                 android:textSize="18sp"
-                android:textColor="#f16f7d"
+                android:textColor="#ffffff"
                 android:padding="16dp"
                 android:clickable="true"/>
             <Button
@@ -86,22 +86,13 @@
                 android:layout_marginTop="30dp"
                 style="@style/Base.TextAppearance.AppCompat.Body1"
                 android:textSize="18sp"
-                android:textColor="#f16f7d"
+                android:textColor="#ffffff"
                 android:padding="16dp"
                 android:clickable="true"/>
-<!--            <TextView-->
-<!--                android:id="@+id/newAccount"-->
-<!--                android:layout_width="199dp"-->
-<!--                android:layout_height="40dp"-->
-<!--                android:paddingTop="6dp"-->
-<!--                android:layout_marginEnd="8dp"-->
-<!--                android:layout_marginStart="8dp"-->
-<!--                android:layout_marginTop="18dp"-->
-<!--                android:layout_gravity="center_horizontal"-->
-<!--                android:text="New User? Register"-->
-<!--                android:textSize="22sp" />-->
+
 
         </LinearLayout>
     </ScrollView>
+<!--    f16f7d-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

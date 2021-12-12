@@ -13,8 +13,8 @@ import com.amplifyframework.core.Amplify;
 public class ConfirmActivity extends AppCompatActivity {
     private static final String TAG = "VerificationActivity";
     private String username;
-    private String email;
-    private String password;
+//    private String email;
+//    private String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,20 +27,20 @@ public class ConfirmActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         username = intent.getExtras().getString("username", "");
-        email = intent.getExtras().getString("email", "");
-        password = intent.getExtras().getString("password", "");
+//        email = intent.getExtras().getString("email", "");
+//        password = intent.getExtras().getString("password", "");
 
-        confirm.setOnClickListener(view -> verification(email, editText.getText().toString()));
+        confirm.setOnClickListener(view -> verification(username, editText.getText().toString()));
     }
 
-    void verification(String email, String confirmationNumber) {
+    void verification(String username, String confirmationNumber) {
         Amplify.Auth.confirmSignUp(
-                email,
+                username,
                 confirmationNumber,
                 success -> {
                     Log.i(TAG, "verification: succeeded" + success.toString());
                     Intent goToSignIn = new Intent(ConfirmActivity.this, Login.class);
-                    goToSignIn.putExtra("email", email);
+                    goToSignIn.putExtra("username", username);
                     startActivity(goToSignIn);
 //                    silentSignIn(username, password);
                 },
@@ -49,14 +49,14 @@ public class ConfirmActivity extends AppCompatActivity {
                 });
     }
 
-    void silentSignIn(String email, String password) {
-        Amplify.Auth.signIn(
-                email,
-                password,
-                success -> {
-                    Log.i(TAG, "signIn: worked " + success.toString());
-                },
-                error -> Log.e(TAG, "signIn: failed" + error.toString()));
-    }
+//    void silentSignIn(String email, String password) {
+//        Amplify.Auth.signIn(
+//                email,
+//                password,
+//                success -> {
+//                    Log.i(TAG, "signIn: worked " + success.toString());
+//                },
+//                error -> Log.e(TAG, "signIn: failed" + error.toString()));
+//    }
 
 }
