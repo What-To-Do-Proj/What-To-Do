@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.api.aws.AWSApiPlugin;
@@ -44,6 +45,7 @@ public class Register extends AppCompatActivity {
                         email.getText().toString(),
                         password.getText().toString()
                 );
+//                Toast.makeText(Register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -78,7 +80,7 @@ public class Register extends AppCompatActivity {
         // configure Amplify plugins
         try {
             Amplify.addPlugin(new AWSDataStorePlugin());
-            //need to install cognito
+            //need to install cognito (amplify add auth)
 //            Amplify.addPlugin(new AWSCognitoAuthPlugin());
             Amplify.addPlugin(new AWSApiPlugin());
             Amplify.configure(getApplicationContext());
