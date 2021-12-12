@@ -1,52 +1,104 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateUntitledModel(
-  $input: CreateUntitledModelInput!
-  $condition: ModelUntitledModelConditionInput
+mutation CreateTeam(
+  $input: CreateTeamInput!
+  $condition: ModelTeamConditionInput
 ) {
-  createUntitledModel(input: $input, condition: $condition) {
-    id
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-mutation UpdateUntitledModel(
-  $input: UpdateUntitledModelInput!
-  $condition: ModelUntitledModelConditionInput
-) {
-  updateUntitledModel(input: $input, condition: $condition) {
-    id
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-mutation DeleteUntitledModel(
-  $input: DeleteUntitledModelInput!
-  $condition: ModelUntitledModelConditionInput
-) {
-  deleteUntitledModel(input: $input, condition: $condition) {
-    id
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-mutation CreateShamikhQuraan(
-  $input: CreateShamikhQuraanInput!
-  $condition: ModelShamikhQuraanConditionInput
-) {
-  createShamikhQuraan(input: $input, condition: $condition) {
+  createTeam(input: $input, condition: $condition) {
     id
     name
-    description
-    dima
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+    Tasks {
+      items {
+        id
+        title
+        body
+        state
+        teamID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+}
+mutation UpdateTeam(
+  $input: UpdateTeamInput!
+  $condition: ModelTeamConditionInput
+) {
+  updateTeam(input: $input, condition: $condition) {
+    id
+    name
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+    Tasks {
+      items {
+        id
+        title
+        body
+        state
+        teamID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+}
+mutation DeleteTeam(
+  $input: DeleteTeamInput!
+  $condition: ModelTeamConditionInput
+) {
+  deleteTeam(input: $input, condition: $condition) {
+    id
+    name
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+    Tasks {
+      items {
+        id
+        title
+        body
+        state
+        teamID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+}
+mutation CreateTask(
+  $input: CreateTaskInput!
+  $condition: ModelTaskConditionInput
+) {
+  createTask(input: $input, condition: $condition) {
+    id
+    title
+    body
+    state
+    teamID
     _version
     _deleted
     _lastChangedAt
@@ -54,15 +106,16 @@ mutation CreateShamikhQuraan(
     updatedAt
   }
 }
-mutation UpdateShamikhQuraan(
-  $input: UpdateShamikhQuraanInput!
-  $condition: ModelShamikhQuraanConditionInput
+mutation UpdateTask(
+  $input: UpdateTaskInput!
+  $condition: ModelTaskConditionInput
 ) {
-  updateShamikhQuraan(input: $input, condition: $condition) {
+  updateTask(input: $input, condition: $condition) {
     id
-    name
-    description
-    dima
+    title
+    body
+    state
+    teamID
     _version
     _deleted
     _lastChangedAt
@@ -70,15 +123,16 @@ mutation UpdateShamikhQuraan(
     updatedAt
   }
 }
-mutation DeleteShamikhQuraan(
-  $input: DeleteShamikhQuraanInput!
-  $condition: ModelShamikhQuraanConditionInput
+mutation DeleteTask(
+  $input: DeleteTaskInput!
+  $condition: ModelTaskConditionInput
 ) {
-  deleteShamikhQuraan(input: $input, condition: $condition) {
+  deleteTask(input: $input, condition: $condition) {
     id
-    name
-    description
-    dima
+    title
+    body
+    state
+    teamID
     _version
     _deleted
     _lastChangedAt

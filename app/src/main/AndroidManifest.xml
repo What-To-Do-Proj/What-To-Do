@@ -15,6 +15,31 @@
             android:parentActivityName=".MainActivity"
             />
         <activity
+            android:name=".AddTaskActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".TaskDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AllTasksActivity"
+            android:parentActivityName=".MainActivity">
+
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
             android:name=".ConfirmActivity"
             android:exported="true"
             android:parentActivityName=".MainActivity"

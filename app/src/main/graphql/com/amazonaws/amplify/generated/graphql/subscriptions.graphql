@@ -1,40 +1,92 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateUntitledModel {
-  onCreateUntitledModel {
-    id
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-subscription OnUpdateUntitledModel {
-  onUpdateUntitledModel {
-    id
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-subscription OnDeleteUntitledModel {
-  onDeleteUntitledModel {
-    id
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-subscription OnCreateShamikhQuraan {
-  onCreateShamikhQuraan {
+subscription OnCreateTeam {
+  onCreateTeam {
     id
     name
-    description
-    dima
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+    Tasks {
+      items {
+        id
+        title
+        body
+        state
+        teamID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+}
+subscription OnUpdateTeam {
+  onUpdateTeam {
+    id
+    name
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+    Tasks {
+      items {
+        id
+        title
+        body
+        state
+        teamID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+}
+subscription OnDeleteTeam {
+  onDeleteTeam {
+    id
+    name
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+    Tasks {
+      items {
+        id
+        title
+        body
+        state
+        teamID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+}
+subscription OnCreateTask {
+  onCreateTask {
+    id
+    title
+    body
+    state
+    teamID
     _version
     _deleted
     _lastChangedAt
@@ -42,12 +94,13 @@ subscription OnCreateShamikhQuraan {
     updatedAt
   }
 }
-subscription OnUpdateShamikhQuraan {
-  onUpdateShamikhQuraan {
+subscription OnUpdateTask {
+  onUpdateTask {
     id
-    name
-    description
-    dima
+    title
+    body
+    state
+    teamID
     _version
     _deleted
     _lastChangedAt
@@ -55,12 +108,13 @@ subscription OnUpdateShamikhQuraan {
     updatedAt
   }
 }
-subscription OnDeleteShamikhQuraan {
-  onDeleteShamikhQuraan {
+subscription OnDeleteTask {
+  onDeleteTask {
     id
-    name
-    description
-    dima
+    title
+    body
+    state
+    teamID
     _version
     _deleted
     _lastChangedAt
