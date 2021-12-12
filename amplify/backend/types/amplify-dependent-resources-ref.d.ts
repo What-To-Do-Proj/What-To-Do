@@ -12,12 +12,17 @@ export type AmplifyDependentResourcesAttributes = {
     },
     "auth": {
         "whattodo6b0477ff6b0477ff": {
+            "IdentityPoolId": "string",
+            "IdentityPoolName": "string",
             "UserPoolId": "string",
             "UserPoolArn": "string",
             "UserPoolName": "string",
             "AppClientIDWeb": "string",
             "AppClientID": "string",
             "CreatedSNSRole": "string"
+        },
+        "userPoolGroups": {
+            "usersGroupRole": "string"
         }
     },
     "function": {
@@ -32,6 +37,12 @@ export type AmplifyDependentResourcesAttributes = {
             "Arn": "string",
             "Region": "string",
             "LambdaExecutionRole": "string"
+        }
+    },
+    "storage": {
+        "s3whattodostoragedrdofrz5h4aov": {
+            "BucketName": "string",
+            "Region": "string"
         }
     }
 }

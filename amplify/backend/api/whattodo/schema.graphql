@@ -1,11 +1,14 @@
-type UntitledModel @model @auth(rules: [{allow: public}]) {
+
+type Team @model @auth(rules: [{allow: public}]) {
   id: ID!
+  name: String
+  Tasks: [Task] @connection(keyName: "byTeam", fields: ["id"])
 }
 
-type ShamikhQuraan @model @auth(rules: [{allow: public}]) {
+type Task @model @auth(rules: [{allow: public}]) @key(name: "byTeam", fields: ["teamID"]) {
   id: ID!
-  name: String!
-  description: String
-  dima: String
+  title: String
+  body: String
+  state: String
+  teamID: ID
 }
- 

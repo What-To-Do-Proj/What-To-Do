@@ -1,62 +1,90 @@
 # this is an auto generated file. This will be overwritten
-query GetUntitledModel($id: ID!) {
-  getUntitledModel(id: $id) {
-    id
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-query ListUntitledModels(
-  $filter: ModelUntitledModelFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listUntitledModels(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-    nextToken
-    startedAt
-  }
-}
-query SyncUntitledModels(
-  $filter: ModelUntitledModelFilterInput
-  $limit: Int
-  $nextToken: String
-  $lastSync: AWSTimestamp
-) {
-  syncUntitledModels(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    lastSync: $lastSync
-  ) {
-    items {
-      id
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-    nextToken
-    startedAt
-  }
-}
-query GetShamikhQuraan($id: ID!) {
-  getShamikhQuraan(id: $id) {
+query GetTeam($id: ID!) {
+  getTeam(id: $id) {
     id
     name
-    description
-    dima
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+    Tasks {
+      items {
+        id
+        title
+        body
+        state
+        teamID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+}
+query ListTeams(
+  $filter: ModelTeamFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listTeams(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      Tasks {
+        nextToken
+        startedAt
+      }
+    }
+    nextToken
+    startedAt
+  }
+}
+query SyncTeams(
+  $filter: ModelTeamFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncTeams(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      name
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      Tasks {
+        nextToken
+        startedAt
+      }
+    }
+    nextToken
+    startedAt
+  }
+}
+query GetTask($id: ID!) {
+  getTask(id: $id) {
+    id
+    title
+    body
+    state
+    teamID
     _version
     _deleted
     _lastChangedAt
@@ -64,17 +92,18 @@ query GetShamikhQuraan($id: ID!) {
     updatedAt
   }
 }
-query ListShamikhQuraans(
-  $filter: ModelShamikhQuraanFilterInput
+query ListTasks(
+  $filter: ModelTaskFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listShamikhQuraans(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listTasks(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      name
-      description
-      dima
+      title
+      body
+      state
+      teamID
       _version
       _deleted
       _lastChangedAt
@@ -85,13 +114,13 @@ query ListShamikhQuraans(
     startedAt
   }
 }
-query SyncShamikhQuraans(
-  $filter: ModelShamikhQuraanFilterInput
+query SyncTasks(
+  $filter: ModelTaskFilterInput
   $limit: Int
   $nextToken: String
   $lastSync: AWSTimestamp
 ) {
-  syncShamikhQuraans(
+  syncTasks(
     filter: $filter
     limit: $limit
     nextToken: $nextToken
@@ -99,9 +128,10 @@ query SyncShamikhQuraans(
   ) {
     items {
       id
-      name
-      description
-      dima
+      title
+      body
+      state
+      teamID
       _version
       _deleted
       _lastChangedAt
