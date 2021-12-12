@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/new_login_gradients"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="18dp"
+    android:paddingRight="18dp"
+    android:paddingTop="16dp"
+    tools:context=".Login">
+
+    <TextView
+        android:id="@+id/EmailText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="144dp"
+        android:gravity="center"
+        android:text="Confirm Your Email"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:padding="8dp"
+        android:hint="Confirm Your Email"
+        android:textColorHint="#ffffff"
+        android:maxLines="1"
+        android:textSize="28sp"
+        android:background="@android:color/transparent"
+        android:drawableLeft="@drawable/ic_email_white_18dp"
+        />
+<!--    <TextView-->
+<!--        android:id="@+id/EmailText"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        -->
+<!--        android:drawablePadding="12dp"-->
+<!--        android:ems="10"-->
+<!--        android:inputType="textEmailAddress"-->
+<!--        android:padding="8dp"-->
+<!--        android:hint="Confirm Your Email"-->
+<!--        android:textColorHint="#ffffff"-->
+<!--        android:maxLines="1"-->
+<!--        android:drawableLeft="@drawable/ic_email_white_18dp" />-->
+
+    <EditText
+        android:id="@+id/confirmCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Confirmation Code"
+        android:inputType="number" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/confirm"
+        android:background="@drawable/background_login"
+        android:text="Create New Account"
+        android:textAllCaps="false"
+        android:textStyle="normal"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        style="@style/Base.TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"
+        android:textColor="#f16f7d"
+        android:padding="16dp"
+        android:clickable="true"/>
+
+</LinearLayout>

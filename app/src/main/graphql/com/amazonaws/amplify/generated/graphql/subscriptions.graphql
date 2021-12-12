@@ -1,9 +1,7 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateTodo {
-  onCreateTodo {
+subscription OnCreateUntitledModel {
+  onCreateUntitledModel {
     id
-    name
-    description
     _version
     _deleted
     _lastChangedAt
@@ -11,11 +9,9 @@ subscription OnCreateTodo {
     updatedAt
   }
 }
-subscription OnUpdateTodo {
-  onUpdateTodo {
+subscription OnUpdateUntitledModel {
+  onUpdateUntitledModel {
     id
-    name
-    description
     _version
     _deleted
     _lastChangedAt
@@ -23,11 +19,48 @@ subscription OnUpdateTodo {
     updatedAt
   }
 }
-subscription OnDeleteTodo {
-  onDeleteTodo {
+subscription OnDeleteUntitledModel {
+  onDeleteUntitledModel {
+    id
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateShamikhQuraan {
+  onCreateShamikhQuraan {
     id
     name
     description
+    dima
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateShamikhQuraan {
+  onUpdateShamikhQuraan {
+    id
+    name
+    description
+    dima
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteShamikhQuraan {
+  onDeleteShamikhQuraan {
+    id
+    name
+    description
+    dima
     _version
     _deleted
     _lastChangedAt

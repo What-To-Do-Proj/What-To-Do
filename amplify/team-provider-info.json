@@ -11,5 +11,63 @@
       "StackId": "arn:aws:cloudformation:us-east-1:933669891220:stack/amplify-whattodo-dev-141513/056d81b0-5a7c-11ec-b5ec-12b9ba882b2f",
       "AmplifyAppId": "d1brjt4e2p9ps7"
     }
+  },
+  "dimapro": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-whattodo-dimapro-141515-authRole",
+      "UnauthRoleArn": "arn:aws:iam::933669891220:role/amplify-whattodo-dimapro-141515-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::933669891220:role/amplify-whattodo-dimapro-141515-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-whattodo-dimapro-141515-deployment",
+      "UnauthRoleName": "amplify-whattodo-dimapro-141515-unauthRole",
+      "StackName": "amplify-whattodo-dimapro-141515",
+      "StackId": "arn:aws:cloudformation:us-east-1:933669891220:stack/amplify-whattodo-dimapro-141515/2bcd2b20-5b45-11ec-aa21-124f774d9e03",
+      "AmplifyAppId": "d1brjt4e2p9ps7",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-whattodo-dimapro-141515-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "whattodo61773ae761773ae7": {},
+        "whattodo6b0477ff6b0477ff": {}
+      },
+      "function": {
+        "whattodo6b0477ff6b0477ffPostConfirmation": {
+          "GROUP": "users",
+          "deploymentBucketName": "amplify-whattodo-dimapro-141515-deployment",
+          "s3Key": "amplify-builds/whattodo6b0477ff6b0477ffPostConfirmation-6d774e632b756b306352-build.zip"
+        }
+      }
+    }
+  },
+  "whattodo": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-whattodo-whattodo-150059-authRole",
+      "UnauthRoleArn": "arn:aws:iam::034892735905:role/amplify-whattodo-whattodo-150059-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::034892735905:role/amplify-whattodo-whattodo-150059-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-whattodo-whattodo-150059-deployment",
+      "UnauthRoleName": "amplify-whattodo-whattodo-150059-unauthRole",
+      "StackName": "amplify-whattodo-whattodo-150059",
+      "StackId": "arn:aws:cloudformation:us-east-1:034892735905:stack/amplify-whattodo-whattodo-150059/68408570-5a82-11ec-978c-0e2a43935b61",
+      "AmplifyAppId": "drdofrz5h4aov",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-whattodo-whattodo-150059-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "function": {
+        "whattodo6b0477ff6b0477ffPostConfirmation": {
+          "GROUP": "shamikhGroup",
+          "deploymentBucketName": "amplify-whattodo-whattodo-150059-deployment",
+          "s3Key": "amplify-builds/whattodo6b0477ff6b0477ffPostConfirmation-6a66455a796868713259-build.zip"
+        },
+        "AdminQueries7a532b84": {
+          "deploymentBucketName": "amplify-whattodo-whattodo-150059-deployment",
+          "s3Key": "amplify-builds/AdminQueries7a532b84-6c594835797066734f76-build.zip"
+        }
+      },
+      "auth": {
+        "whattodo6b0477ff6b0477ff": {},
+        "userPoolGroups": {}
+      }
+    }
   }
 }

@@ -1,5 +1,11 @@
-type Todo @model {
+type UntitledModel @model @auth(rules: [{allow: public}]) {
+  id: ID!
+}
+
+type ShamikhQuraan @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
   description: String
+  dima: String
 }
+ 

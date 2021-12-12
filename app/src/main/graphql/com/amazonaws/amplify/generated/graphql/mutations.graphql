@@ -1,12 +1,10 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateTodo(
-  $input: CreateTodoInput!
-  $condition: ModelTodoConditionInput
+mutation CreateUntitledModel(
+  $input: CreateUntitledModelInput!
+  $condition: ModelUntitledModelConditionInput
 ) {
-  createTodo(input: $input, condition: $condition) {
+  createUntitledModel(input: $input, condition: $condition) {
     id
-    name
-    description
     _version
     _deleted
     _lastChangedAt
@@ -14,14 +12,12 @@ mutation CreateTodo(
     updatedAt
   }
 }
-mutation UpdateTodo(
-  $input: UpdateTodoInput!
-  $condition: ModelTodoConditionInput
+mutation UpdateUntitledModel(
+  $input: UpdateUntitledModelInput!
+  $condition: ModelUntitledModelConditionInput
 ) {
-  updateTodo(input: $input, condition: $condition) {
+  updateUntitledModel(input: $input, condition: $condition) {
     id
-    name
-    description
     _version
     _deleted
     _lastChangedAt
@@ -29,14 +25,60 @@ mutation UpdateTodo(
     updatedAt
   }
 }
-mutation DeleteTodo(
-  $input: DeleteTodoInput!
-  $condition: ModelTodoConditionInput
+mutation DeleteUntitledModel(
+  $input: DeleteUntitledModelInput!
+  $condition: ModelUntitledModelConditionInput
 ) {
-  deleteTodo(input: $input, condition: $condition) {
+  deleteUntitledModel(input: $input, condition: $condition) {
+    id
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateShamikhQuraan(
+  $input: CreateShamikhQuraanInput!
+  $condition: ModelShamikhQuraanConditionInput
+) {
+  createShamikhQuraan(input: $input, condition: $condition) {
     id
     name
     description
+    dima
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateShamikhQuraan(
+  $input: UpdateShamikhQuraanInput!
+  $condition: ModelShamikhQuraanConditionInput
+) {
+  updateShamikhQuraan(input: $input, condition: $condition) {
+    id
+    name
+    description
+    dima
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteShamikhQuraan(
+  $input: DeleteShamikhQuraanInput!
+  $condition: ModelShamikhQuraanConditionInput
+) {
+  deleteShamikhQuraan(input: $input, condition: $condition) {
+    id
+    name
+    description
+    dima
     _version
     _deleted
     _lastChangedAt

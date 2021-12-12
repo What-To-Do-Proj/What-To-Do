@@ -1,5 +1,6 @@
 {
   "AppSyncApiName": "whattodo",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2021-12-11T13:13:55.236Z"
 }
