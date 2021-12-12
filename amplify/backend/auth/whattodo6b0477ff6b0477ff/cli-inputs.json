@@ -1,8 +1,6 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "whattodo6b0477ff_identitypool_6b0477ff",
-    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "whatto6b0477ff",
     "userPoolName": "whattodo6b0477ff_userpool_6b0477ff",
     "autoVerifiedAttributes": [
@@ -35,10 +33,9 @@
     "userpoolClientSetAttributes": false,
     "sharedId": "6b0477ff",
     "resourceName": "whattodo6b0477ff6b0477ff",
-    "authSelections": "identityPoolAndUserPool",
+    "authSelections": "userPoolOnly",
     "useDefault": "manual",
-    "thirdPartyAuth": false,
-    "userPoolGroups": false,
+    "userPoolGroups": true,
     "adminQueries": false,
     "triggers": {
       "PostConfirmation": [
@@ -46,7 +43,9 @@
       ]
     },
     "hostedUI": false,
-    "userPoolGroupList": [],
+    "userPoolGroupList": [
+      "users"
+    ],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
     "useEnabledMfas": true,
@@ -74,13 +73,14 @@
         ]
       }
     ],
-    "authProviders": [],
     "parentStack": {
       "Ref": "AWS::StackId"
     },
     "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PostConfirmation\",\n    \"lambdaFunctionName\": \"whattodo6b0477ff6b0477ffPostConfirmation\"\n  }\n]",
     "permissions": [
       "{\n  \"policyName\": \"AddToGroupCognito\",\n  \"trigger\": \"PostConfirmation\",\n  \"effect\": \"Allow\",\n  \"actions\": [\n    \"cognito-idp:AdminAddUserToGroup\",\n    \"cognito-idp:GetGroup\",\n    \"cognito-idp:CreateGroup\"\n  ],\n  \"resource\": {\n    \"paramType\": \"!GetAtt\",\n    \"keys\": [\n      \"UserPool\",\n      \"Arn\"\n    ]\n  }\n}"
-    ]
+    ],
+    "adminQueryGroup": "users",
+    "authProviders": []
   }
 }

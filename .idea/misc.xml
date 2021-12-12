@@ -3,14 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/STUDENT/Desktop/WhatToDo/What-To-Do/app/src/main/res/drawable/background_login.xml" value="0.14635416666666667" />
-        <entry key="..\:/Users/STUDENT/Desktop/WhatToDo/What-To-Do/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22037037037037038" />
-        <entry key="..\:/Users/STUDENT/Desktop/WhatToDo/What-To-Do/app/src/main/res/drawable/ic_lock_white_24dp.xml" value="0.215625" />
-        <entry key="..\:/Users/STUDENT/Desktop/WhatToDo/What-To-Do/app/src/main/res/drawable/new_login_gradients.xml" value="0.22037037037037038" />
-        <entry key="..\:/Users/STUDENT/Desktop/WhatToDo/What-To-Do/app/src/main/res/layout/activity_confirm.xml" value="0.264" />
-        <entry key="..\:/Users/STUDENT/Desktop/WhatToDo/What-To-Do/app/src/main/res/layout/activity_login.xml" value="0.1" />
-        <entry key="..\:/Users/STUDENT/Desktop/WhatToDo/What-To-Do/app/src/main/res/layout/activity_main.xml" value="0.14402173913043478" />
-        <entry key="..\:/Users/STUDENT/Desktop/WhatToDo/What-To-Do/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/Users/Shamikh Qu/AndroidStudioProjects/proj/What-To-Do/app/src/main/res/layout/activity_register.xml" value="0.264" />
       </map>
     </option>
   </component>

@@ -9,7 +9,6 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import com.amplifyframework.core.Amplify;
-
 public class ConfirmActivity extends AppCompatActivity {
     private static final String TAG = "VerificationActivity";
     private String username;

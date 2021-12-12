@@ -1,20 +1,22 @@
 # this is an auto generated file. This will be overwritten
-query SyncTodos(
-  $filter: ModelTodoFilterInput
+query GetUntitledModel($id: ID!) {
+  getUntitledModel(id: $id) {
+    id
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+query ListUntitledModels(
+  $filter: ModelUntitledModelFilterInput
   $limit: Int
   $nextToken: String
-  $lastSync: AWSTimestamp
 ) {
-  syncTodos(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    lastSync: $lastSync
-  ) {
+  listUntitledModels(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      name
-      description
       _version
       _deleted
       _lastChangedAt
@@ -25,11 +27,36 @@ query SyncTodos(
     startedAt
   }
 }
-query GetTodo($id: ID!) {
-  getTodo(id: $id) {
+query SyncUntitledModels(
+  $filter: ModelUntitledModelFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncUntitledModels(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    nextToken
+    startedAt
+  }
+}
+query GetShamikhQuraan($id: ID!) {
+  getShamikhQuraan(id: $id) {
     id
     name
     description
+    dima
     _version
     _deleted
     _lastChangedAt
@@ -37,16 +64,44 @@ query GetTodo($id: ID!) {
     updatedAt
   }
 }
-query ListTodos(
-  $filter: ModelTodoFilterInput
+query ListShamikhQuraans(
+  $filter: ModelShamikhQuraanFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listShamikhQuraans(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       name
       description
+      dima
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    nextToken
+    startedAt
+  }
+}
+query SyncShamikhQuraans(
+  $filter: ModelShamikhQuraanFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncShamikhQuraans(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      name
+      description
+      dima
       _version
       _deleted
       _lastChangedAt
