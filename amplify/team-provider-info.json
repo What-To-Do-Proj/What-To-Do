@@ -38,5 +38,31 @@
         }
       }
     }
+  },
+  "abdpro": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-whattodo-abdpro-172944-authRole",
+      "UnauthRoleArn": "arn:aws:iam::719295629001:role/amplify-whattodo-abdpro-172944-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::719295629001:role/amplify-whattodo-abdpro-172944-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-whattodo-abdpro-172944-deployment",
+      "UnauthRoleName": "amplify-whattodo-abdpro-172944-unauthRole",
+      "StackName": "amplify-whattodo-abdpro-172944",
+      "StackId": "arn:aws:cloudformation:us-east-1:719295629001:stack/amplify-whattodo-abdpro-172944/58b94e50-5b60-11ec-8b40-0e5d50560d99",
+      "AmplifyAppId": "d3tgfkqwha55r2",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-whattodo-abdpro-172944-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "function": {
+        "whattodo6b0477ff6b0477ffPostConfirmation": {
+          "GROUP": "users",
+          "deploymentBucketName": "amplify-whattodo-abdpro-172944-deployment",
+          "s3Key": "amplify-builds/whattodo6b0477ff6b0477ffPostConfirmation-6a66455a796868713259-build.zip"
+        }
+      },
+      "auth": {
+        "whattodo6b0477ff6b0477ff": {}
+      }
+    }
   }
 }
