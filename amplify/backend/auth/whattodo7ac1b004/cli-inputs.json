@@ -1,14 +1,14 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "whattodo6b0477ff6b0477ff_identitypool_392ee23b",
+    "identityPoolName": "whattodo7ac1b004_identitypool_7ac1b004",
     "allowUnauthenticatedIdentities": true,
-    "resourceNameTruncated": "whatto6b0477ff",
-    "userPoolName": "whattodo6b0477ff_userpool_6b0477ff",
+    "resourceNameTruncated": "whatto7ac1b004",
+    "userPoolName": "whattodo7ac1b004_userpool_7ac1b004",
     "autoVerifiedAttributes": [
       "email"
     ],
-    "mfaConfiguration": "ON",
+    "mfaConfiguration": "OFF",
     "mfaTypes": [
       "SMS Text Message"
     ],
@@ -31,23 +31,14 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "whatto6b0477ff_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "whatto7ac1b004_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "6b0477ff",
-    "resourceName": "whattodo6b0477ff6b0477ff",
+    "sharedId": "7ac1b004",
+    "resourceName": "whattodo7ac1b004",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "manual",
-    "userPoolGroups": true,
-    "adminQueries": false,
-    "triggers": {
-      "PostConfirmation": [
-        "add-to-group"
-      ]
-    },
-    "hostedUI": false,
-    "userPoolGroupList": [
-      "users"
-    ],
+    "triggers": {},
+    "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
     "useEnabledMfas": true,
@@ -64,27 +55,15 @@
       ]
     },
     "breakCircularDependency": true,
-    "dependsOn": [
-      {
-        "category": "function",
-        "resourceName": "whattodo6b0477ff6b0477ffPostConfirmation",
-        "triggerProvider": "Cognito",
-        "attributes": [
-          "Arn",
-          "Name"
-        ]
-      }
-    ],
+    "dependsOn": [],
+    "thirdPartyAuth": false,
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "hostedUI": false,
+    "authProviders": [],
     "parentStack": {
       "Ref": "AWS::StackId"
     },
-    "authTriggerConnections": [
-      "{\"triggerType\":\"PostConfirmation\",\"lambdaFunctionName\":\"whattodo6b0477ff6b0477ffPostConfirmation\"}"
-    ],
-    "permissions": [
-      "{\"policyName\":\"AddToGroupCognito\",\"trigger\":\"PostConfirmation\",\"effect\":\"Allow\",\"actions\":[\"cognito-idp:AdminAddUserToGroup\",\"cognito-idp:GetGroup\",\"cognito-idp:CreateGroup\"],\"resource\":{\"paramType\":\"!GetAtt\",\"keys\":[\"UserPool\",\"Arn\"]}}"
-    ],
-    "adminQueryGroup": "users",
-    "authProviders": []
+    "permissions": []
   }
 }

@@ -53,20 +53,8 @@
       "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-whattodo-whattodo-150059-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
-      "function": {
-        "whattodo6b0477ff6b0477ffPostConfirmation": {
-          "GROUP": "shamikhGroup",
-          "deploymentBucketName": "amplify-whattodo-whattodo-150059-deployment",
-          "s3Key": "amplify-builds/whattodo6b0477ff6b0477ffPostConfirmation-6a66455a796868713259-build.zip"
-        },
-        "AdminQueries7a532b84": {
-          "deploymentBucketName": "amplify-whattodo-whattodo-150059-deployment",
-          "s3Key": "amplify-builds/AdminQueries7a532b84-6c594835797066734f76-build.zip"
-        }
-      },
       "auth": {
-        "whattodo6b0477ff6b0477ff": {},
-        "userPoolGroups": {}
+        "whattodo7ac1b004": {}
       }
     }
   }
