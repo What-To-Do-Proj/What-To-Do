@@ -4,20 +4,25 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.api.aws.AWSApiPlugin;
+//import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
+//import com.amplifyframework.datastore.AWSDataStorePlugin;
 import com.amplifyframework.datastore.AWSDataStorePlugin;
 import com.amplifyframework.datastore.generated.model.Task;
 import com.amplifyframework.datastore.generated.model.Team;
@@ -51,9 +56,9 @@ import java.util.List;
 // Initialized Amplify
             try {
                 Amplify.addPlugin( new AWSApiPlugin() );
-                Amplify.addPlugin( new AWSS3StoragePlugin() );
-                Amplify.addPlugin( new AWSCognitoAuthPlugin() );
                 Amplify.addPlugin( new AWSDataStorePlugin() );
+                Amplify.addPlugin(new AWSCognitoAuthPlugin());
+                Amplify.addPlugin( new AWSS3StoragePlugin() );
                 Amplify.configure( getApplicationContext() );
                 Log.i( "Tutorial", "Initialized Amplify" );
             } catch (AmplifyException failure) {
@@ -74,16 +79,16 @@ import java.util.List;
 
 
 // for auth ...........................
-            Amplify.Auth.fetchAuthSession(
-                    result -> Log.i( "AmplifyQuickstart", result.toString() ),
-                    error -> Log.e( "AmplifyQuickstart", error.toString() )
-            );
+//            Amplify.Auth.fetchAuthSession(
+//                    result -> Log.i( "AmplifyQuickstart", result.toString() ),
+//                    error -> Log.e( "AmplifyQuickstart", error.toString() )
+//            );
 
 
 // getting data from database .
-
+//
             Amplify.DataStore.query(
-                    Task.class, Task.TEAM_ID.eq( "2a38e3e0-7023-4cb5-9a31-a3979698cf13" ),
+                    Task.class,
                     items -> {
                         while (items.hasNext()) {
                             Task item = items.next();
@@ -132,7 +137,13 @@ import java.util.List;
 
                 }
             } );
-
+            handler = new Handler( Looper.getMainLooper(),
+                    new Handler.Callback() {
+                        @Override
+                        public boolean handleMessage(@NonNull Message message) {
+                            return false;
+                        }
+                    });
             allTasks.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -165,7 +176,7 @@ import java.util.List;
 
 
             Amplify.DataStore.query(
-                    Team.class, Team.NAME.contains( team ),
+                    Team.class,
                     items -> {
                         while (items.hasNext()) {
                             Team item = items.next();

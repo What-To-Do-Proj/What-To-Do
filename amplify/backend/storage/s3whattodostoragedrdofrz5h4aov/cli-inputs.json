@@ -4,13 +4,13 @@
   "policyUUID": "db331cbf",
   "storageAccess": "authAndGuest",
   "guestAccess": [
-    "CREATE_AND_UPDATE",
     "READ",
+    "CREATE_AND_UPDATE",
     "DELETE"
   ],
   "authAccess": [
-    "CREATE_AND_UPDATE",
     "READ",
+    "CREATE_AND_UPDATE",
     "DELETE"
   ]
 }

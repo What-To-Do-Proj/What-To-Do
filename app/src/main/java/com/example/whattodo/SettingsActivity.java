@@ -57,37 +57,37 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
 
-
-        loginBut.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onClick(View v){
-                Amplify.Auth.fetchAuthSession(
-                        result ->{
-                            if(result.isSignedIn()){
-                                Amplify.Auth.signOut(
-                                        () -> Log.i("AuthQuickstart", "Signed out successfully"),
-                                        error -> Log.e("AuthQuickstart", error.toString())
-                                );
-//                                loginBut.setText("sign in");
-
-                            }
-                            else{
-
-                                Amplify.Auth.signInWithWebUI(
-                                        SettingsActivity.this,
-                                        result1 -> Log.i("AuthQuickStart", result1.toString()),
-                                        error -> Log.e("AuthQuickStart", error.toString())
-                                );
-                                finish();
-//                                loginBut.setText("sign out");
-                            }
-                        },
-                        error -> Log.e("AmplifyQuickstart", error.toString())
-                );
-            }
-        });
-
+//
+//        loginBut.setOnClickListener(new View.OnClickListener() {
+//            @SuppressLint("SetTextI18n")
+//            @Override
+//            public void onClick(View v){
+//                Amplify.Auth.fetchAuthSession(
+//                        result ->{
+//                            if(result.isSignedIn()){
+//                                Amplify.Auth.signOut(
+//                                        () -> Log.i("AuthQuickstart", "Signed out successfully"),
+//                                        error -> Log.e("AuthQuickstart", error.toString())
+//                                );
+////                                loginBut.setText("sign in");
+//
+//                            }
+//                            else{
+//
+//                                Amplify.Auth.signInWithWebUI(
+//                                        SettingsActivity.this,
+//                                        result1 -> Log.i("AuthQuickStart", result1.toString()),
+//                                        error -> Log.e("AuthQuickStart", error.toString())
+//                                );
+//                                finish();
+////                                loginBut.setText("sign out");
+//                            }
+//                        },
+//                        error -> Log.e("AmplifyQuickstart", error.toString())
+//                );
+//            }
+//        });
+//
 
     }
     @SuppressLint("SetTextI18n")
@@ -99,28 +99,28 @@ public class SettingsActivity extends AppCompatActivity {
         TextView username = findViewById(R.id.login_user_name);
 //        done.setVisibility(View.INVISIBLE);
         username.setText("");
-        Button login = (Button)  findViewById(R.id.loginBut);
-        Amplify.Auth.fetchAuthSession(
-                user -> {
-                    if (user.isSignedIn()) {
-                        String data = Amplify.Auth.getCurrentUser().getUsername();
-                        username.setText("loged in user : "+data);
-//                        done.setVisibility(View.VISIBLE);
-                    }
-                },
-                failure -> Log.e("Amplify", "Could not query DataStore", failure)
-        );
+//Button login = (Button)  findViewById(R.id.loginBut);
+//        Amplify.Auth.fetchAuthSession(
+//                user -> {
+//                    if (user.isSignedIn()) {
+//                        String data = Amplify.Auth.getCurrentUser().getUsername();
+//                        username.setText("loged in user : "+data);
+////                        done.setVisibility(View.VISIBLE);
+//                    }
+//                },
+//                failure -> Log.e("Amplify", "Could not query DataStore", failure)
+//        );
 
-        Amplify.Auth.fetchAuthSession(
-                user -> {
-                    if (user.isSignedIn()) {
-                        login.setText("Log out");
-                    }else {
-                        login.setText("Log in");
-                    }
-                },
-                failure -> Log.e("Amplify", "Could not query DataStore", failure)
-        );
+//        Amplify.Auth.fetchAuthSession(
+//                user -> {
+//                    if (user.isSignedIn()) {
+//                        login.setText("Log out");
+//                    }else {
+//                        login.setText("Log in");
+//                    }
+//                },
+//                failure -> Log.e("Amplify", "Could not query DataStore", failure)
+//        );
 
     }
 
