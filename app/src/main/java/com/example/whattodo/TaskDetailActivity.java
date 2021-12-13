@@ -1,5 +1,6 @@
 package com.example.whattodo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,6 +8,9 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
@@ -23,22 +27,28 @@ import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
 import java.io.File;
 
 public class TaskDetailActivity extends AppCompatActivity {
-
+    Handler handler = new Handler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_detail);
-        try {
-            Amplify.addPlugin( new AWSApiPlugin() );
-            Amplify.addPlugin( new AWSDataStorePlugin() );
-            Amplify.addPlugin(new AWSCognitoAuthPlugin());
-            Amplify.addPlugin( new AWSS3StoragePlugin() );
-            Amplify.configure( getApplicationContext() );
-            Log.i( "Tutorial", "Initialized Amplify" );
-        } catch (AmplifyException failure) {
-            Log.e( "Tutorial", "Could not initialize Amplify", failure );
-        }
-
+//        try {
+//            Amplify.addPlugin( new AWSApiPlugin() );
+//            Amplify.addPlugin( new AWSDataStorePlugin() );
+//            Amplify.addPlugin(new AWSCognitoAuthPlugin());
+//            Amplify.addPlugin( new AWSS3StoragePlugin() );
+//            Amplify.configure( getApplicationContext() );
+//            Log.i( "Tutorial", "Initialized Amplify" );
+//        } catch (AmplifyException failure) {
+//            Log.e( "Tutorial", "Could not initialize Amplify", failure );
+//        }
+        handler = new Handler( Looper.getMainLooper(),
+                new Handler.Callback() {
+                    @Override
+                    public boolean handleMessage(@NonNull Message message) {
+                        return false;
+                    }
+                });
         // create intent to get passing extra from main activity
         Intent detailIntent=getIntent();
         String taskName  = detailIntent.getStringExtra("taskName");

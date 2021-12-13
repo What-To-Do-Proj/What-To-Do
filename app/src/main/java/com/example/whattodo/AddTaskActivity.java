@@ -1,5 +1,8 @@
 package com.example.whattodo;
 
+import static android.content.ContentValues.TAG;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -14,6 +17,9 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
@@ -24,9 +30,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amplifyframework.AmplifyException;
+import com.amplifyframework.api.aws.AWSApiPlugin;
+import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.AWSDataStorePlugin;
 import com.amplifyframework.datastore.generated.model.Task;
 import com.amplifyframework.datastore.generated.model.Team;
+import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -47,11 +58,23 @@ public class AddTaskActivity extends AppCompatActivity {
 
     private FusedLocationProviderClient fusedLocationClient;
 //    Uri imageUri;
+Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
+        try {
+            Amplify.addPlugin( new AWSApiPlugin() );
+            Amplify.addPlugin( new AWSDataStorePlugin() );
+            Amplify.addPlugin(new AWSCognitoAuthPlugin());
+            Amplify.addPlugin( new AWSS3StoragePlugin() );
+            Amplify.configure( getApplicationContext() );
+            Log.i( "Tutorial", "Initialized Amplify" );
+        } catch (AmplifyException failure) {
+            Log.e( "Tutorial", "Could not initialize Amplify", failure );
+        }
+
 
         EditText title, body, state;
         title = findViewById(R.id.taskTitle);
@@ -196,9 +219,15 @@ public class AddTaskActivity extends AppCompatActivity {
                             String country = address.get(0).getCountryName();
                             String postalCode = address.get(0).getPostalCode();
                             String knownName = address.get(0).getFeatureName();
-
+                            handler = new Handler( Looper.getMainLooper(),
+                                    new Handler.Callback() {
+                                        @Override
+                                        public boolean handleMessage(@NonNull Message message) {
+                                            return false;
+                                        }
+                                    });
                             mylocation = country + "- " + city;
-                            System.out.println("Abd" + mylocation);
+                            System.out.println("Shamikh" + mylocation);
 
                         }
                     }
