@@ -1,7 +1,5 @@
 package com.example.whattodo;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -35,6 +33,7 @@ import com.amplifyframework.api.aws.AWSApiPlugin;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.AWSDataStorePlugin;
+import com.amplifyframework.datastore.generated.model.Priority;
 import com.amplifyframework.datastore.generated.model.Task;
 import com.amplifyframework.datastore.generated.model.Team;
 import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
@@ -48,31 +47,33 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Predicate;
 
 public class AddTaskActivity extends AppCompatActivity {
-    private Spinner teamSpinner;
-    private List<Team> teams = new ArrayList<>();
+    private Spinner prioritySpinner;
+    private List<Priority> priorities = new ArrayList<>();
     Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
     Uri uri;
     String mylocation;
 
     private FusedLocationProviderClient fusedLocationClient;
-//    Uri imageUri;
-Handler handler = new Handler();
+    //    Uri imageUri;
+    Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
+
         try {
-            Amplify.addPlugin( new AWSApiPlugin() );
-            Amplify.addPlugin( new AWSDataStorePlugin() );
+            Amplify.addPlugin(new AWSApiPlugin());
+            Amplify.addPlugin(new AWSDataStorePlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
-            Amplify.addPlugin( new AWSS3StoragePlugin() );
-            Amplify.configure( getApplicationContext() );
-            Log.i( "Tutorial", "Initialized Amplify" );
+            Amplify.addPlugin(new AWSS3StoragePlugin());
+            Amplify.configure(getApplicationContext());
+            Log.i("Tutorial", "Initialized Amplify");
         } catch (AmplifyException failure) {
-            Log.e( "Tutorial", "Could not initialize Amplify", failure );
+            Log.e("Tutorial", "Could not initialize Amplify", failure);
         }
 
 
@@ -140,10 +141,10 @@ Handler handler = new Handler();
 // for create spinner
         ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item,
-                new String[]{"team1", "team2", "team3"});
-        teamSpinner = findViewById(R.id.teamSpinner);
+                new String[]{"High", "Medium", "Low"});
+        prioritySpinner = findViewById(R.id.teamSpinner);
         dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        teamSpinner.setAdapter(dataAdapter2);
+        prioritySpinner.setAdapter(dataAdapter2);
 
 
         addTask.setOnClickListener(new View.OnClickListener() {
@@ -153,13 +154,13 @@ Handler handler = new Handler();
                 String titletaken = title.getText().toString();
                 String desctaken = body.getText().toString();
                 String stateTaken = state.getText().toString();
-                String team = teamSpinner.getSelectedItem().toString();
+                String team = prioritySpinner.getSelectedItem().toString();
                 Amplify.DataStore.query(
                         Team.class, Team.NAME.contains(team),
                         items -> {
                             while (items.hasNext()) {
                                 Team item = items.next();
-                                Task item1 = Task.builder().title(titletaken).body(desctaken).state(state.getText().toString()).teamId(item.getId()).build();
+                                Task item1 = Task.builder().title(titletaken).body(desctaken).state(state.getText().toString()).priorityId(item.getId()).build();
                                 Amplify.DataStore.save(
                                         item1,
                                         success -> Log.i("COMO", "Saved item: "),
@@ -181,7 +182,7 @@ Handler handler = new Handler();
                                 } catch (FileNotFoundException e) {
                                     e.printStackTrace();
                                 }
-                                Log.i("abd", "Id was stored ");
+                                Log.i("Shamikh", "Id was stored ");
                                 Log.i("Amplify", "Id " + item.getId());
                             }
                         },
@@ -219,7 +220,7 @@ Handler handler = new Handler();
                             String country = address.get(0).getCountryName();
                             String postalCode = address.get(0).getPostalCode();
                             String knownName = address.get(0).getFeatureName();
-                            handler = new Handler( Looper.getMainLooper(),
+                            handler = new Handler(Looper.getMainLooper(),
                                     new Handler.Callback() {
                                         @Override
                                         public boolean handleMessage(@NonNull Message message) {

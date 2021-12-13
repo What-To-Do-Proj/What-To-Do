@@ -3,11 +3,6 @@ subscription OnCreateTeam {
   onCreateTeam {
     id
     name
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
     Tasks {
       items {
         id
@@ -24,17 +19,17 @@ subscription OnCreateTeam {
       nextToken
       startedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
   }
 }
 subscription OnUpdateTeam {
   onUpdateTeam {
     id
     name
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
     Tasks {
       items {
         id
@@ -51,17 +46,17 @@ subscription OnUpdateTeam {
       nextToken
       startedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
   }
 }
 subscription OnDeleteTeam {
   onDeleteTeam {
     id
     name
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
     Tasks {
       items {
         id
@@ -78,6 +73,11 @@ subscription OnDeleteTeam {
       nextToken
       startedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
   }
 }
 subscription OnCreateTask {

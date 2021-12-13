@@ -42,7 +42,7 @@ public class SettingsActivity extends AppCompatActivity {
       // create spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item,
-                new String[]{"team1", "team2", "team3"});
+                new String[]{"High", "Medium", "Low"});
        Spinner teamSpinner = findViewById(R.id.chooseTeamSpinner);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         teamSpinner.setAdapter(dataAdapter);
@@ -79,16 +79,16 @@ public class SettingsActivity extends AppCompatActivity {
 //        done.setVisibility(View.INVISIBLE);
         username.setText("");
 //Button login = (Button)  findViewById(R.id.loginBut);
-//        Amplify.Auth.fetchAuthSession(
-//                user -> {
-//                    if (user.isSignedIn()) {
-//                        String data = Amplify.Auth.getCurrentUser().getUsername();
-//                        username.setText("loged in user : "+data);
-////                        done.setVisibility(View.VISIBLE);
-//                    }
-//                },
-//                failure -> Log.e("Amplify", "Could not query DataStore", failure)
-//        );
+        Amplify.Auth.fetchAuthSession(
+                user -> {
+                    if (user.isSignedIn()) {
+                        String data = Amplify.Auth.getCurrentUser().getUsername();
+                        username.setText("loged in user : "+data);
+//                        done.setVisibility(View.VISIBLE);
+                    }
+                },
+                failure -> Log.e("Amplify", "Could not query DataStore", failure)
+        );
 
 //        Amplify.Auth.fetchAuthSession(
 //                user -> {

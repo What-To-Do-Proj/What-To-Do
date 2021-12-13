@@ -15,6 +15,12 @@
           "additionalAuthenticationProviders": [
             {
               "authenticationType": "AWS_IAM"
+            },
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authwhattodo4057aca7"
+              }
             }
           ]
         }
@@ -22,7 +28,7 @@
     }
   },
   "auth": {
-    "whattodo7ac1b004": {
+    "whattodo4057aca7": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -47,9 +53,8 @@
       }
     }
   },
-  "function": {},
   "storage": {
-    "s3whattodostoragedrdofrz5h4aov": {
+    "s3whattodostoraged1brjt4e2p9ps7": {
       "service": "S3",
       "providerPlugin": "awscloudformation",
       "dependsOn": []

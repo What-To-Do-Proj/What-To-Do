@@ -6,7 +6,7 @@ export type AmplifyDependentResourcesAttributes = {
         }
     },
     "auth": {
-        "whattodo7ac1b004": {
+        "whattodo4057aca7": {
             "IdentityPoolId": "string",
             "IdentityPoolName": "string",
             "UserPoolId": "string",
@@ -17,7 +17,7 @@ export type AmplifyDependentResourcesAttributes = {
         }
     },
     "storage": {
-        "s3whattodostoragedrdofrz5h4aov": {
+        "s3whattodostoraged1brjt4e2p9ps7": {
             "BucketName": "string",
             "Region": "string"
         }

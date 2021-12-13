@@ -13,6 +13,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+//        applicationId "com.andremion.floatingnavigationview.sample"
+//        minSdkVersion project.ext.minSdkVersion
+//        targetSdkVersion project.ext.targetSdkVersion
     }
 
     buildTypes {
@@ -24,7 +28,9 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+//        compile 'com.github.andremion:floatingnavigationview:1.3.0'
     }
+
 }
 
 dependencies {
@@ -45,7 +51,7 @@ dependencies {
     implementation 'com.amplifyframework:aws-storage-s3:1.30.0'
 
 // location
-    implementation 'com.google.android.gms:play-services-location:19.0.0'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
     def room_version = "2.3.0"
 
     implementation "androidx.room:room-runtime:$room_version"
@@ -65,4 +71,11 @@ dependencies {
 
     // optional - Paging 3 Integration
     implementation "androidx.room:room-paging:2.4.0-rc01"
+//
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation project(':App')
+//    implementation "com.google.android.material:material:materialDesignVersion"
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation "com.google.android.material:material:$materialDesignVersion"
+
 }

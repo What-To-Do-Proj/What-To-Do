@@ -1,16 +1,16 @@
 {
-  "resourceName": "s3whattodostoragedrdofrz5h4aov",
-  "bucketName": "whattodo-storage-drdofrz5h4aov",
-  "policyUUID": "db331cbf",
+  "resourceName": "s3whattodostoraged1brjt4e2p9ps7",
+  "bucketName": "whattodo-storage-d1brjt4e2p9ps7",
+  "policyUUID": "e8279bc3",
   "storageAccess": "authAndGuest",
   "guestAccess": [
-    "READ",
     "CREATE_AND_UPDATE",
+    "READ",
     "DELETE"
   ],
   "authAccess": [
-    "READ",
     "CREATE_AND_UPDATE",
+    "READ",
     "DELETE"
   ]
 }

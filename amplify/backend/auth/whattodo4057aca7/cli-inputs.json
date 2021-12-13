@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "whattodo7ac1b004_identitypool_7ac1b004",
+    "identityPoolName": "whattodo4057aca7_identitypool_4057aca7",
     "allowUnauthenticatedIdentities": true,
-    "resourceNameTruncated": "whatto7ac1b004",
-    "userPoolName": "whattodo7ac1b004_userpool_7ac1b004",
+    "resourceNameTruncated": "whatto4057aca7",
+    "userPoolName": "whattodo4057aca7_userpool_4057aca7",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,13 +31,12 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "whatto7ac1b004_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "whatto4057aca7_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "7ac1b004",
-    "resourceName": "whattodo7ac1b004",
+    "sharedId": "4057aca7",
+    "resourceName": "whattodo4057aca7",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "manual",
-    "triggers": {},
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
@@ -59,6 +58,7 @@
     "thirdPartyAuth": false,
     "userPoolGroups": false,
     "adminQueries": false,
+    "triggers": {},
     "hostedUI": false,
     "authProviders": [],
     "parentStack": {

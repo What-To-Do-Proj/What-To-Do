@@ -24,18 +24,20 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 @ModelConfig(pluralName = "Tasks", authRules = {
   @AuthRule(allow = AuthStrategy.PUBLIC, operations = { ModelOperation.CREATE, ModelOperation.UPDATE, ModelOperation.DELETE, ModelOperation.READ })
 })
-@Index(name = "byTeam", fields = {"teamID"})
+@Index(name = "byPriority", fields = {"priorityID"})
 public final class Task implements Model {
   public static final QueryField ID = field("Task", "id");
   public static final QueryField TITLE = field("Task", "title");
   public static final QueryField BODY = field("Task", "body");
   public static final QueryField STATE = field("Task", "state");
-  public static final QueryField TEAM_ID = field("Task", "teamID");
+  public static final QueryField PRIORITY_ID = field("Task", "priorityID");
+  public static final QueryField USERNAME = field("Task", "username");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String") String title;
   private final @ModelField(targetType="String") String body;
   private final @ModelField(targetType="String") String state;
-  private final @ModelField(targetType="ID") String teamID;
+  private final @ModelField(targetType="ID") String priorityID;
+  private final @ModelField(targetType="String") String username;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
@@ -54,8 +56,12 @@ public final class Task implements Model {
       return state;
   }
   
-  public String getTeamId() {
-      return teamID;
+  public String getPriorityId() {
+      return priorityID;
+  }
+  
+  public String getUsername() {
+      return username;
   }
   
   public Temporal.DateTime getCreatedAt() {
@@ -66,12 +72,13 @@ public final class Task implements Model {
       return updatedAt;
   }
   
-  private Task(String id, String title, String body, String state, String teamID) {
+  private Task(String id, String title, String body, String state, String priorityID, String username) {
     this.id = id;
     this.title = title;
     this.body = body;
     this.state = state;
-    this.teamID = teamID;
+    this.priorityID = priorityID;
+    this.username = username;
   }
   
   @Override
@@ -86,7 +93,8 @@ public final class Task implements Model {
               ObjectsCompat.equals(getTitle(), task.getTitle()) &&
               ObjectsCompat.equals(getBody(), task.getBody()) &&
               ObjectsCompat.equals(getState(), task.getState()) &&
-              ObjectsCompat.equals(getTeamId(), task.getTeamId()) &&
+              ObjectsCompat.equals(getPriorityId(), task.getPriorityId()) &&
+              ObjectsCompat.equals(getUsername(), task.getUsername()) &&
               ObjectsCompat.equals(getCreatedAt(), task.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), task.getUpdatedAt());
       }
@@ -99,7 +107,8 @@ public final class Task implements Model {
       .append(getTitle())
       .append(getBody())
       .append(getState())
-      .append(getTeamId())
+      .append(getPriorityId())
+      .append(getUsername())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -114,7 +123,8 @@ public final class Task implements Model {
       .append("title=" + String.valueOf(getTitle()) + ", ")
       .append("body=" + String.valueOf(getBody()) + ", ")
       .append("state=" + String.valueOf(getState()) + ", ")
-      .append("teamID=" + String.valueOf(getTeamId()) + ", ")
+      .append("priorityID=" + String.valueOf(getPriorityId()) + ", ")
+      .append("username=" + String.valueOf(getUsername()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
@@ -139,6 +149,7 @@ public final class Task implements Model {
       null,
       null,
       null,
+      null,
       null
     );
   }
@@ -148,7 +159,8 @@ public final class Task implements Model {
       title,
       body,
       state,
-      teamID);
+      priorityID,
+      username);
   }
   public interface BuildStep {
     Task build();
@@ -156,7 +168,8 @@ public final class Task implements Model {
     BuildStep title(String title);
     BuildStep body(String body);
     BuildStep state(String state);
-    BuildStep teamId(String teamId);
+    BuildStep priorityId(String priorityId);
+    BuildStep username(String username);
   }
   
 
@@ -165,7 +178,8 @@ public final class Task implements Model {
     private String title;
     private String body;
     private String state;
-    private String teamID;
+    private String priorityID;
+    private String username;
     @Override
      public Task build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
@@ -175,7 +189,8 @@ public final class Task implements Model {
           title,
           body,
           state,
-          teamID);
+          priorityID,
+          username);
     }
     
     @Override
@@ -197,8 +212,14 @@ public final class Task implements Model {
     }
     
     @Override
-     public BuildStep teamId(String teamId) {
-        this.teamID = teamId;
+     public BuildStep priorityId(String priorityId) {
+        this.priorityID = priorityId;
+        return this;
+    }
+    
+    @Override
+     public BuildStep username(String username) {
+        this.username = username;
         return this;
     }
     
@@ -214,12 +235,13 @@ public final class Task implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String title, String body, String state, String teamId) {
+    private CopyOfBuilder(String id, String title, String body, String state, String priorityId, String username) {
       super.id(id);
       super.title(title)
         .body(body)
         .state(state)
-        .teamId(teamId);
+        .priorityId(priorityId)
+        .username(username);
     }
     
     @Override
@@ -238,8 +260,13 @@ public final class Task implements Model {
     }
     
     @Override
-     public CopyOfBuilder teamId(String teamId) {
-      return (CopyOfBuilder) super.teamId(teamId);
+     public CopyOfBuilder priorityId(String priorityId) {
+      return (CopyOfBuilder) super.priorityId(priorityId);
+    }
+    
+    @Override
+     public CopyOfBuilder username(String username) {
+      return (CopyOfBuilder) super.username(username);
     }
   }
   

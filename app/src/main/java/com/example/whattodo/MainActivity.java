@@ -51,6 +51,7 @@ import java.util.List;
             super.onCreate( savedInstanceState );
             setContentView( R.layout.activity_main );
 
+
             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences( this );
 
 // Initialized Amplify
@@ -64,6 +65,16 @@ import java.util.List;
             } catch (AmplifyException failure) {
                 Log.e( "Tutorial", "Could not initialize Amplify", failure );
             }
+            Amplify.Auth.fetchAuthSession(
+                    result ->{
+                        if(! result.isSignedIn()){
+                            Intent loginIntent = new Intent(this,Login.class);
+                            startActivity(loginIntent);
+                        }
+
+                    },
+                    error -> Log.e("AmplifyQuickstart", error.toString())
+            );
             Amplify.DataStore.observe( Task.class,
                     started -> Log.i( "Tutorial", "Observation began." ),
                     change -> Log.i( "Tutorial", change.item().toString() ),
@@ -82,8 +93,9 @@ import java.util.List;
 
 // getting data from database .
 //
+//            Team item = items.next();
             Amplify.DataStore.query(
-                    Task.class,Task.TEAM_ID.eq("3d6095d1-d2ab-4549-928c-d151fb50ec86"),
+                    Task.class, Task.PRIORITY_ID.eq("248c900e-e4e9-40cf-8547-06bb6e7e34be"),
 
             items -> {
                         while (items.hasNext()) {
@@ -116,7 +128,7 @@ import java.util.List;
             Button addTask = MainActivity.this.findViewById( R.id.button_addTask );
             Button allTasks = MainActivity.this.findViewById( R.id.button_allTasks );
             Button settings = MainActivity.this.findViewById( R.id.button_settings );
-
+            Button logout = MainActivity.this.findViewById( R.id.logout );
 
             TextView userNameView = findViewById( R.id.home_page_userName );
 
@@ -156,12 +168,38 @@ import java.util.List;
                 }
             } );
 
+            logout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Amplify.Auth.signOut(
+                            () -> Log.i("AuthQuickstart", "Signed out successfully"),
+                            error -> Log.e("AuthQuickstart", error.toString())
+
+                    );
+                    Intent loginIntent = new Intent(MainActivity.this,Login.class);
+                    startActivity(loginIntent);
+                }
+            });
+
+
         }
 
         @SuppressLint("SetTextI18n")
         @Override
         protected void onResume() {
             super.onResume();
+//
+//            Amplify.Auth.fetchAuthSession(
+//                    result ->{
+//                        if(! result.isSignedIn()){
+//                            Intent loginIntent = new Intent(this,Login.class);
+//                            startActivity(loginIntent);
+//                        }
+//                        else{
+//                        }
+//                    },
+//                    error -> Log.e("AmplifyQuickstart", error.toString())
+//            );
 
             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences( MainActivity.this );
             String team = sharedPreferences.getString( "team", "team" );
@@ -184,13 +222,13 @@ import java.util.List;
                             Team item = items.next();
 
                             Amplify.DataStore.query(
-                                    Task.class, Task.TEAM_ID.eq( item.getId() ),
+                                    Task.class, Task.PRIORITY_ID.eq( item.getId()),
                                     itemss -> {
                                         tasks.clear();
                                         while (itemss.hasNext()) {
                                             Task item1 = itemss.next();
                                             tasks.add( item1 );
-                                            Log.i( "DUCK", "list " + item1.getTeamId() );
+                                            Log.i( "DUCK", "list " + item1.getPriorityId() );
 
                                         }
                                         handler.post( runnable );
@@ -203,5 +241,8 @@ import java.util.List;
                     },
                     failure -> Log.e( "Amplify", "Could not query DataStore", failure )
             );
+
+
+
         }
     }

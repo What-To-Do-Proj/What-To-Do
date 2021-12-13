@@ -1,14 +1,15 @@
-
-type Team @model @auth(rules: [{allow: public}]) {
+type Priority @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String
-  Tasks: [Task] @connection(keyName: "byTeam", fields: ["id"])
+  Tasks: [Task] @connection(keyName: "byPriority", fields: ["id"])
 }
 
-type Task @model @auth(rules: [{allow: public}]) @key(name: "byTeam", fields: ["teamID"]) {
+type Task @model @auth(rules: [{allow: public}]) @key(name: "byPriority", fields: ["priorityID"]) {
   id: ID!
   title: String
   body: String
   state: String
-  teamID: ID
+  priorityID: ID
+  username: String
 }
+ 

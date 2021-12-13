@@ -13,10 +13,14 @@
       }
     },
     "apiName": "whattodo",
-    "gqlSchemaPath": "/tmp/amplify-5aa283b2-08cd-4751-b162-7439d6c67809/amplify/backend/api/whattodo/schema.graphql",
+    "gqlSchemaPath": "/tmp/amplify-a164042d-c954-455f-bea9-37f622e529fb/amplify/backend/api/whattodo/schema.graphql",
     "additionalAuthTypes": [
       {
         "mode": "AWS_IAM"
+      },
+      {
+        "mode": "AMAZON_COGNITO_USER_POOLS",
+        "cognitoUserPoolId": "authwhattodo4057aca7"
       }
     ]
   }
