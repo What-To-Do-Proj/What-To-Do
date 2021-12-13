@@ -78,18 +78,14 @@ import java.util.List;
             );
 
 
-// for auth ...........................
-//            Amplify.Auth.fetchAuthSession(
-//                    result -> Log.i( "AmplifyQuickstart", result.toString() ),
-//                    error -> Log.e( "AmplifyQuickstart", error.toString() )
-//            );
 
 
 // getting data from database .
 //
             Amplify.DataStore.query(
-                    Task.class,
-                    items -> {
+                    Task.class,Task.TEAM_ID.eq("3d6095d1-d2ab-4549-928c-d151fb50ec86"),
+
+            items -> {
                         while (items.hasNext()) {
                             Task item = items.next();
                             tasks.add( item );
@@ -172,7 +168,13 @@ import java.util.List;
             TextView userNameView = findViewById( R.id.home_page_userName );
             String userName = sharedPreferences.getString( "userName", "User" );
             userNameView.setText( userName + "' Tasks" );
-
+            handler = new Handler( Looper.getMainLooper(),
+                    new Handler.Callback() {
+                        @Override
+                        public boolean handleMessage(@NonNull Message message) {
+                            return false;
+                        }
+                    });
 
 
             Amplify.DataStore.query(

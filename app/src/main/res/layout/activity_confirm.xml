@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/confirm"
         android:background="@drawable/background_login"
-        android:text="Create New Account"
+        android:text="Confirm"
         android:textAllCaps="false"
         android:textStyle="normal"
         android:layout_gravity="center"
